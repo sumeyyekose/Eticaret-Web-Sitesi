@@ -1,0 +1,22 @@
+﻿@using proje1.Entity
+@model IEnumerable<Urun>
+
+    <h5>Öne Çıkanlar</h5>
+@foreach (var item in Model)
+{
+    <div class="thumbnail">
+        <img src="~/Content/İmages/@item.Resim" alt="Bootshop panasonoc New camera" />
+        <div class="caption">
+            <h5><a href="/Home/UrunDetay/@item.Id">@item.Adi</a></h5>
+            <h4 style="text-align:center">
+
+            <a class="btn" href="/Home/UrunDetay/@item.Id">Görüntüle<i class="icon-shopping-cart"></i></a> 
+            <a class="btn btn-primary" href="#">@item.Fiyat (₺)</a></h4>
+        </div>
+    </div>
+
+    <br />
+}
+
+
+

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<proje1.Entity.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            
+            <!-- /.card -->
+
+            <div class="card">
+                
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <a class="btn btn-primary ptn-block" href="@Url.Action("Create")">Yeni Kayıt</a>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Kategori Adı</th>
+                                <th>Açıklama</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Adi)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Aciklama)
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary ptn-sm" href="@Url.Action("Edit",new { id = item.Id })"><i class="fa fa-fw fa-edit"></i>Düzenle</a>
+                                        <a class="btn btn-danger ptn-sm" href="@Url.Action("Delete",new { id = item.Id })"><i class="fa fa-fw fa-trash"></i>Sil</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        <tfoot>
+                            <tr>
+                                <th>Kategori Adı</th>
+                                <th>Açıklama</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

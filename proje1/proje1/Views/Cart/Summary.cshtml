@@ -1,0 +1,5 @@
+﻿@model proje1.Models.Cart
+<div class="well well-small">
+    <a id="myCart" href="/Cart/Index">
+    <img src="~/magaza/themes/images/ico-cart.png" alt="cart">[@Model.CartLines.Count] Adet 
+    <span class="badge badge-warning pull-right">@Model.Total().ToString("c")</span></a></div>

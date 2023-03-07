@@ -1,0 +1,38 @@
+﻿<ul id="topMenu" class="nav pull-right">
+    @if (Request.IsAuthenticated)
+    {
+
+        if (this.User.IsInRole("admin"))
+        {
+            <li class=""><a href="/Urun/Index" target="_blank">Admin Paneli</a></li>
+            
+            <li class=""><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li class="">
+                <a href="/Account/Cikis" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-danger">Çıkış</span></a>
+
+            </li>
+        }
+
+        else
+        {
+            <li class=""><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li class="">
+                <a href="/Account/Cikis" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-danger">Çıkış</span></a>
+
+            </li>
+        }
+
+    }
+
+    else
+    {
+        <li class="">
+            <a href="/Account/Register" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-primary">Üye Ol</span></a>
+        </li>
+        <li class="">
+            <a href="/Account/Giris" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Giriş</span></a>
+
+        </li>
+    }
+
+</ul>

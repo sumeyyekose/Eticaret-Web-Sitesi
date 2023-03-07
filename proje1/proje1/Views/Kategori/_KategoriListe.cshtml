@@ -1,0 +1,12 @@
+﻿@using proje1.Models
+@model IEnumerable<KategoriModel>
+
+
+<li><a href="/Home/Urun">Tüm Ürünler</a></li>
+
+@foreach (var item in Model)
+{
+    <li><a href="/Home/UrunListesi/@item.Id">@item.Adi [@item.Toplam]</a></li>
+
+}
+

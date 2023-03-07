@@ -1,0 +1,99 @@
+﻿@using proje1.Entity
+@model IEnumerable<Urun>
+@{
+    ViewBag.Title = "Ara";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div id="mainBody">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar ================================================== -->
+                <div id="sidebar" class="span3">
+                    <div class="well well-small"><a id="myCart" href="product_summary.html"><img src="/magaza/themes/images/ico-cart.png" alt="cart">3 Items in your cart  <span class="badge badge-warning pull-right">$155.00</span></a></div>
+                    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+
+
+                        @Html.Action("KategoriListe", "Kategori")
+
+                    </ul>
+                    <br>
+                    <div class="thumbnail">
+                        <img src="/magaza/themes/images/products/panasonic.jpg" alt="Bootshop panasonoc New camera">
+                        <div class="caption">
+                            <h5>Panasonic</h5>
+                            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                        </div>
+                    </div><br>
+                    <div class="thumbnail">
+                        <img src="/magaza/themes/images/products/kindle.png" title="Bootshop New Kindel" alt="Bootshop Kindel">
+                        <div class="caption">
+                            <h5>Kindle</h5>
+                            <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                        </div>
+                    </div><br>
+                    <div class="thumbnail">
+                        <img src="/magaza/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+                        <div class="caption">
+                            <h5>Payment Methods</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar end=============================================== -->
+                <div class="span9">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                        <li class="active">Ürün İsimleri</li>
+                    </ul>
+                    <h3>Ürün İsimleri</h3>
+
+
+
+
+                    <br class="clr">
+                    <div class="tab-content">
+                        <div class="tab-pane  active" id="blockView">
+
+                            <ul class="thumbnails">
+                                @foreach (var item in Model)
+                                {
+                                    <li class="span3">
+                                        <div class="thumbnail" style="width:270px;height:310px">
+                                            <a href="/Home/UrunDetay/@item.Id"><img style="width:160px;height:120px;max-width:150px;max-height:160px" src="~/Content/İmages/@item.Resim" alt="" /></a>
+                                            <div class="caption" style="width:260px;height:140px">
+                                                <h5><a href="/Home/UrunDetay/@item.Id">@item.Adi</a></h5>
+                                                <p>
+                                                    @item.Aciklama
+                                                </p>
+
+                                                <h4 style="text-align:center"> <a class="btn" href="/Home/UrunDetay/@item.Id">Görüntüle...<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary">@item.Fiyat (₺)</a></h4>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+
+
+                            </ul>
+
+                            <hr class="soft">
+                        </div>
+                    </div>
+
+                    <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
+                    <div class="pagination">
+                        <ul>
+                            <li><a href="#">‹</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">›</a></li>
+                        </ul>
+                    </div>
+                    <br class="clr">
+                </div>
+            </div>
+        </div>
+    </div>
+

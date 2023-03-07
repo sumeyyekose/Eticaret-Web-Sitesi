@@ -1,0 +1,82 @@
+﻿@using proje1.Models
+@model IEnumerable<UrunModel>
+@{
+    ViewBag.Title = "Urun";
+}
+
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            <div id="sidebar" class="span3">
+                @Html.Action("Summary", "Cart")
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+
+
+                    @Html.Action("KategoriListe", "Kategori")
+
+                </ul>
+                <br />
+
+
+                @Html.Action("OnecikanUrunler", "Home")
+
+
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                    <li class="active">Ürün İsimleri</li>
+                </ul>
+                <h3>Ürün İsimleri</h3>
+
+
+             
+
+                <br class="clr">
+                <div class="tab-content">
+                    <div class="tab-pane  active" id="blockView">
+                      
+                        <ul class="thumbnails">
+                            @foreach (var item in Model)
+                            {
+                                <li class="span3">
+                                    <div class="thumbnail" style="width:270px;height:310px">
+                                        <a href="/Home/UrunDetay/@item.Id"><img style="width:160px;height:120px;max-width:150px;max-height:160px" src="~/Content/İmages/@item.Resim" alt="" /></a>
+                                        <div class="caption" style="width:260px;height:140px">
+                                            <h5><a href="/Home/UrunDetay/@item.Id">@item.Adi</a></h5>
+                                            <p>
+                                                @item.Aciklama
+                                            </p>
+
+                                            <h4 style="text-align:center"> <a class="btn" href="/Home/UrunDetay/@item.Id">Görüntüle...<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary">@item.Fiyat (₺)</a></h4>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+
+
+                        </ul>
+
+                        <hr class="soft">
+                    </div>
+                </div>
+
+                <a href="compair.html" class="btn btn-large pull-right">Compair Product</a>
+                <div class="pagination">
+                    <ul>
+                        <li><a href="#">‹</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">›</a></li>
+                    </ul>
+                </div>
+                <br class="clr">
+            </div>
+        </div>
+    </div>
+</div>
